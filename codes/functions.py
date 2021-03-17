@@ -129,6 +129,6 @@ def plot_frequency3(epl_vessels_all_info):
     plt.xticks(x, keys,rotation=80)
     plt.xlabel('ID')
     plt.ylabel('Frequency')
-    plt.title('Customers ID with at least 10 purchases')
+    plt.title('Customers Identifiers')
     plt.savefig('results/costumersid_epl_addressable.png')
     plt.show()
