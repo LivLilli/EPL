@@ -78,3 +78,52 @@ def check(row):
         return 1
     else:
         return 0
+    
+    
+def plot_frequency(epl_vessels_all_info,col, color, title,typo,x_lab):
+    column = epl_vessels_all_info[col]
+    column_freq = Counter(column)
+    x = list(column_freq.keys())
+    y = list(column_freq.values())
+    labels = x
+    plt.bar(x,y, color =color, 
+            width = 0.7)
+    plt.xticks(x, labels,rotation=80)
+    plt.xlabel(x_lab)
+    plt.ylabel('Frequency')
+    plt.title(title)
+    plt.savefig('results/{}_epl_addressable.png'.format(typo))
+    plt.show()
+    
+    
+def plot_frequency2(epl_vessels_all_info,col, color, title):
+    plt.figure(figsize=(20,10))
+    column = epl_vessels_all_info[col]
+    column_freq = Counter(column)
+    x_pos = np.arange(1, len(column_freq.keys())+1, 1)
+    x = list(column_freq.keys())
+    y = list(column_freq.values())
+    labels = x
+    plt.bar(x_pos,y, color =color, width = 0.7)
+    plt.xticks(x_pos, labels,rotation=80)
+    plt.xlabel('Country')
+    plt.ylabel('Frequency')
+    plt.title(title)
+    plt.savefig('results/costumers_epl_addressable.png')
+    plt.show()
+    
+def plot_frequency3(epl_vessels_all_info):
+    customers_dict = Counter(epl_vessels_all_info['Customer ID'].values) # dict of customers and related number of purchases
+    customers_dict = sorted(customers_dict.items(), key=lambda x:x[1], reverse = True) # order the above dict
+    customers_10purchase = customers_dict[:22] # dict of customers with at least 10 purchases
+    keys = [t[0] for t in customers_10purchase]
+    values = [t[1] for t in customers_10purchase]
+    plt.figure(figsize=(10,5))
+    x = np.arange(1,len(keys)+1, 1)
+    plt.bar(x, values)
+    plt.xticks(x, keys,rotation=80)
+    plt.xlabel('ID')
+    plt.ylabel('Frequency')
+    plt.title('Customers ID with at least 10 purchases')
+    plt.savefig('results/costumersid_epl_addressable.png')
+    plt.show()
