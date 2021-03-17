@@ -120,7 +120,7 @@ def plot_frequency3(epl_vessels_all_info):
     values = [t[1] for t in customers_10purchase]
     plt.figure(figsize=(10,5))
     x = np.arange(1,len(keys)+1, 1)
-    plt.bar(x, values)
+    plt.bar(x, values, color = 'orange',width = 0.7)
     plt.xticks(x, keys,rotation=80)
     plt.xlabel('ID')
     plt.ylabel('Frequency')
