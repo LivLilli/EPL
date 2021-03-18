@@ -20,6 +20,7 @@ def compute_max_operational_speed(row,list_of_speeds):
     '''
     Inputs
         - row: df row related to a vessel 
+        - list_of_speeds: list of the speeds starting from 3 knots
     
     Returns
         - max_op_speed: max operational speed for the vessel
