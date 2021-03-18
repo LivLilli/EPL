@@ -15,7 +15,8 @@ def conversion(el,tot):
     return new
 
 
-def compute_max_operational_speed(row):
+
+def compute_max_operational_speed(row,list_of_speeds):
     '''
     Inputs
         - row: df row related to a vessel 
@@ -36,10 +37,10 @@ def compute_max_operational_speed(row):
         idx_max_op_speed = [n for n,i in enumerate(row) if i<=0.95 ][-1]
         max_op_speed = list_of_speeds[idx_max_op_speed]
     except:
+        
         # for vessels that have already achieved 100% of sailing time in the first slot 3-3.5 
         # we put the min value of speed = 3 knots
         max_op_speed = 3 
-    
     return max_op_speed
 
 
